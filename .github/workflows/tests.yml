@@ -21,4 +21,4 @@ jobs:
           uv pip install -r requirements.txt pytest
 
       - name: Run tests with pytest
-        run: run: uv run python -m pytest
+        run: uv run python -m pytest
