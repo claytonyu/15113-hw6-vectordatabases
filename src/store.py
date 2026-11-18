@@ -37,7 +37,7 @@ def open_collection(path: str = DB_PATH) -> chromadb.Collection:
 def paper_id(arxiv_id: str) -> str:
     """arXiv ID without the version suffix ("2401.01234v2" -> "2401.01234"), so every
     version of a paper is one item and re-runs update it."""
-    return re.sub(r"v\d$", "", arxiv_id.strip())
+    return re.sub(r"v\d+$", "", arxiv_id.strip())
 
 
 def _id(paper: dict) -> str:
