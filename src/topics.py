@@ -9,8 +9,15 @@ import numpy as np
 
 def kmeans(vectors: np.ndarray, k: int, iterations: int = 50, seed: int = 0) -> np.ndarray:
     """Cluster vectors by cosine similarity. Returns the cluster number (0..k-1) of each vector."""
+    if k < 1:
+        raise ValueError("k must be at least 1")
+    if iterations < 1:
+        raise ValueError("iterations must be at least 1")
     rng = np.random.default_rng(seed)
-    vectors = vectors / np.linalg.norm(vectors, axis=1, keepdims=True)
+    norms = np.linalg.norm(vectors, axis=1, keepdims=True)
+    if (norms == 0).any():
+        raise ValueError("cannot cluster a zero vector: it has no direction")
+    vectors = vectors / norms
 
     # k-means++ start: each new center is likely to be far from the existing ones.
     centers = [vectors[rng.integers(len(vectors))]]
