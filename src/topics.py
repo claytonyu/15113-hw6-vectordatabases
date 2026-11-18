@@ -36,7 +36,7 @@ def kmeans(vectors: np.ndarray, k: int, iterations: int = 50, seed: int = 0) -> 
         for c in range(k):
             members = vectors[assignment == c]
             if len(members):
-                mean = members[0]
+                mean = members.mean(axis=0)
                 centers[c] = mean / np.linalg.norm(mean)
     return assignment
 
