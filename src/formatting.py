@@ -30,7 +30,7 @@ def paper_label(paper: dict) -> str:
 
 def result_line(number: int, paper: dict, number_width: int = 2) -> str:
     """One numbered list entry, e.g. ' 3. Some Title (2610.12345)'."""
-    prefix = f"{number:<{number_width}}. "
+    prefix = f"{number:>{number_width}}. "
     return _wrap(paper_label(paper), prefix, " " * len(prefix))
 
 
