@@ -1,7 +1,8 @@
 from src.topics import kmeans
 import numpy as np
 import pytest
-# This asserts that the labeling is the same (regardless of label values)
+
+# Helper: This asserts that the labeling is the same (regardless of label values)
 def assert_labels_equal(a, b):
     np.testing.assert_array_equal(a[:, None] == a[None, :],
                                   b[:, None] == b[None, :])
@@ -32,7 +33,7 @@ def test_kmeans_works_k_large():
     correct_labels = np.array([0, 1, 2, 3, 4, 5])
     assert_labels_equal(labels, correct_labels)
 
-
+## AI-Generated Tests
 def test_kmeans_returns_one_valid_label_per_vector():
     data = np.random.default_rng(1).normal(size=(30, 6))
     labels = kmeans(data, 10)

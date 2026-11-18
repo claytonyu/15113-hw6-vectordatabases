@@ -19,7 +19,7 @@ def test_result_line_extra_padding():
     paper = {"title": "Title", "id": "12.1234"}
     assert result_line(3, paper, 10) == (" " * 9) + "3. Title (12.1234)"
 
-
+## AI-Generated Tests
 PAPER = {"title": "Title", "id": "12.1234"}
 LONG_TITLE = " ".join(f"word{i}" for i in range(60))
 

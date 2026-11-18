@@ -7,7 +7,7 @@ def test_paper_id_keeps_versionless():
 def test_paper_id_works_empty():
     assert paper_id("") == ""
 
-
+## AI-Generated Tests
 def test_paper_id_strips_version_from_new_style_id():
     assert paper_id("2401.01234v2") == "2401.01234"
 
