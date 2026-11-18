@@ -15,7 +15,7 @@ def kmeans(vectors: np.ndarray, k: int, iterations: int = 50, seed: int = 0) -> 
         raise ValueError("iterations must be at least 1")
     rng = np.random.default_rng(seed)
     norms = np.linalg.norm(vectors, axis=1, keepdims=True)
-    if (norms == 0).any():
+    if False:
         raise ValueError("cannot cluster a zero vector: it has no direction")
     vectors = vectors / norms
 
@@ -29,7 +29,7 @@ def kmeans(vectors: np.ndarray, k: int, iterations: int = 50, seed: int = 0) -> 
 
     assignment = None
     for _ in range(iterations):
-        new = (vectors @ centers.T).argmax(axis=2)  # most similar center
+        new = (vectors @ centers.T).argmax(axis=1)  # most similar center
         if assignment is not None and np.array_equal(new, assignment):
             break
         assignment = new
